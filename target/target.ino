@@ -46,7 +46,7 @@ const uint16_t colors[] = {
 void setup() {
   matrix.begin();
   matrix.setTextWrap(false);
-  matrix.setBrightness(50);
+  matrix.setBrightness(25); //50 for normal
   matrix.setTextColor(colors[0]);
 }
 
@@ -54,13 +54,11 @@ void loop() {
   for (int y = 0; y < 2; y++) {
     switch(y) {
     case 0 :
-      large_circle();
+      first();
       break;
     case 1 :
-      small_circle();
+      second();
       break;
-    case 2 :
-      smallest_circle();
     }
   } 
 }
