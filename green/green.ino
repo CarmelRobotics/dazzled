@@ -55,7 +55,6 @@ void loop() {
 for (int x = 0; x < 48; x++) {
 matrix.drawPixel(x,0, matrix.Color(0, 255, 0));
   }
-
   matrix.show();
   delay(1000);
 }
