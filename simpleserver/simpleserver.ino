@@ -28,17 +28,24 @@ void setup() {
   Serial.println(Ethernet.localIP());
 }
 
+int counterloop = 0;
 
 void loop() {
   // listen for incoming clients
   EthernetClient client = server.available();
   if (client) {
+    counterloop = 0;
     Serial.println("new client");
 
     while (client.connected()) {
       if (client.available()) {
         char c = client.read();
-        Serial.write(c); // this acknowledges it to the cRIO
+        Serial.write(c); // this prints it out on the serial monitor
+        if (counterloop++ > 40) {
+          Serial.write('\n');
+          counterloop = 0;
+        }
+        //client.write(c);
         if (c == '0') {
 	    // do nothing
         } else if (c == '1') {
